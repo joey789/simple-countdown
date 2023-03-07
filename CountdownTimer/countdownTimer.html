@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown Timer</title>
+  </head>
+  <body>
+    <div>
+      <h3 id="timer"></h3>
+    </div>
+    <button>
+      <strong> pause </strong>
+    </button>
+    <script>
+      var timeLeftInSec = 6000;
+
+      // Update the timer
+      var x = setInterval(function () {
+        // Decrease time left
+        timeLeftInSec--;
+
+        // convert to min and sec
+        var hour = Math.floor(timeLeftInSec / 60 / 60);
+        var min = Math.floor((timeLeftInSec - hour) / 60);
+        var sec = Math.floor(timeLeftInSec % 60);
+
+        if (timeLeftInSec > 0) {
+          // Display
+          document.getElementById('timer').innerHTML =
+            hour + ':' + min + ':' + sec;
+        } else {
+          document.getElementById('timer').innerHTML = 00 + ':' + 00 + ':' + 00;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
